@@ -1,0 +1,23 @@
+{
+  "name": "negros-top",
+  "version": "1.0.0",
+  "description": "Listar cantores negros de jazz.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w-b-dev/negros-top.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w-b-dev/negros-top/issues"
+  },
+  "homepage": "https://github.com/w-b-dev/negros-top#readme",
+  "dependencies": {
+    "cassandra-driver": "^4.6.3"
+  }
+}
