@@ -1,3 +1,5 @@
+*.zip
+.env
 .idea
-NEGROS-TOP.iml
+*.iml
 node_modules

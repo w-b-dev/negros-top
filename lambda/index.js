@@ -1,13 +1,14 @@
-const {Client, mapping, types} = require("cassandra-driver");
+const dotEnv = require("dotenv").config();
+const { Client, mapping, types } = require("cassandra-driver");
 
 async function getArtistas() {
     const client = new Client({
         cloud: {
-            secureConnectBundle: "negros-top.zip",
+            secureConnectBundle: process.env.ASTRADB_SECURE_BUNDLE,
         },
         credentials: {
-            username: "nUOJITQGXXtgDMYiDUpYPtnZ",
-            password: "I8J4eZ,p3IaG2g1XKJRINrFJS5xLevHFhZv3T7+0J_Erw5ixPni3t2S8wDOPznZ2ADbfD70w-S6x6LLF47x+MBH_sx14B0hTQ.F_Hx9kCZ_wKDkUZ7CX2dG39nBWk6+8",
+            username: process.env.ASTRADB_CLIENT_ID,
+            password: process.env.ASTRADB_CLIENT_SECRET,
         },
     });
     // const mapper = new mapping.Mapper(client, {
@@ -76,7 +77,7 @@ async function postArtistas(requestPayload) {
     const id = Uuid.random();
     /* TODO: requestPayload should be {name: 'Ella Fitzgerald'} */
     try {
-        await artistasMapper.insert({...requestPayload, id: id});
+        await artistasMapper.insert({ ...requestPayload, id: id });
     } catch (e) {
         return ({
             onde: 'await artistasMapper.insert({...requestPayload, id: id});',
@@ -85,7 +86,7 @@ async function postArtistas(requestPayload) {
     }
     /* TODO: result should be request + `id: uuid()` */
     try {
-        const result = await artistasMapper.get({id: id, name: requestPayload.name});
+        const result = await artistasMapper.get({ id: id, name: requestPayload.name });
         await client.shutdown();
         return ({
             artista: result

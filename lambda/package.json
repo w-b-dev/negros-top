@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/w-b-dev/negros-top#readme",
   "dependencies": {
-    "cassandra-driver": "^4.6.3"
+    "cassandra-driver": "^4.6.3",
+    "dotenv": "^16.0.0"
   }
 }
