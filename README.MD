@@ -24,3 +24,11 @@ Depois de cada atualizacao nos metodos e resources, eh importante fazer o deploy
   - Colar no lambda, fazer deploy e testar
   - Mudar template do teste para API GATEWAY
   - Finalmente adicionar logica para filtrar o metodo e retornar resposta distinta
+
+  # Notes
+
+  AWS Lambda upload from inside the `lambda folder` (rm should be not included in the first run):
+  
+  ```
+rm packaged_source.zip && zip -r packaged_source.zip ./lambda -x .git && aws lambda update-function-code --function-name negrosTop --publish --zip-file fileb://packaged_source.zip 
+  ```
